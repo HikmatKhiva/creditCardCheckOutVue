@@ -2,7 +2,7 @@
 import {CardLeft,CardRight} from './components/export';
 </script>
 <template>
-  <main class="center font-varela overflow-hidden lg:min-w-[1200px] flex h-[450px] relative">
+  <main class="center font-varela overflow-hidden flex-col xl:flex-row xl:w-[1200px] flex  xl:h-[450px] relative">
     <CardLeft />
     <CardRight />
   </main>
