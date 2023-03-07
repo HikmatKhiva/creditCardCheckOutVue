@@ -1,5 +1,5 @@
 <template>
-  <input type="text">
+  <input class="form-control" type="text">
 </template>
 <script>
 export default {
@@ -7,7 +7,7 @@ export default {
 }
 </script>
 <style>
-input {
+input.form-control {
     margin-top: 5px;
     background: rgba(255, 255, 255, 0.36);
     border-radius: 11px;
@@ -16,7 +16,7 @@ input {
     font-size: 20px;
     color: white;
 }
-input::placeholder {
+input.form-control::placeholder {
     color: rgba(255, 255, 255, 0.53);
 }
 </style>

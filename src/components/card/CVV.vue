@@ -1,13 +1,12 @@
-<script setup>
-</script>
 <template>
     <div class="cvv__cvc">
         <h4 class="text-xl text-white">CVV/CVC</h4>
-        <input class="my-2" type="text" maxlength="4" placeholder="***_*">
+        <input v-cardformat:formatCardCVC class="form-control" type="text" maxlength="4" placeholder="***_*">
         <p class="">3 or 4 digits</p>
     </div>
 </template>    
-
+<script setup>
+</script>
 <style scoped>
 input {
     text-align: center;

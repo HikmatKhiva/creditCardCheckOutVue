@@ -1,22 +1,9 @@
-<script setup>
-import { ref } from 'vue';
-import { contentSetting, opacityElement } from '../../motionSettings.js';
-import CardDate from '../card/CardDate.vue';
-import CardVisa from '../card/CardVisa.vue';
-import CardNumber from '../card/CardNumber.vue';
-import CVV from '../card/CVV.vue'
-const cardNumber = ref('')
-const getValueCardNumber = (value) =>{
-  cardNumber.value = value;
-
-  console.log(cardNumber.value);
-}
-</script>
 <template>
   <div v-motion="contentSetting.rightInitial"
     class="content__right flex justify-between w-full -top-8 xl:top-0 xl:w-[60%] transition-all duration-300 ease-linear rounded-3xl relative p-5 ">
     <div class="cards p-5">
-      <CardNumber :getValueCardNumber="getValueCardNumber" title="Card number" placeholder="0000-0000-0000-0000" typeInput="text" />
+      <CardNumber :getValueCardNumber="getValueCardNumber" title="Card number" placeholder="0000 0000 0000 0000"
+        typeInput="text" />
       <CardVisa title="Card holder" placeholder="e.g. Jabe Green" typeInput="text" />
       <CardDate />
       <div class="flex items-center gap-1 mt-5">
@@ -31,6 +18,17 @@ const getValueCardNumber = (value) =>{
     </div>
   </div>
 </template>
+<script setup>
+import { defineEmits } from 'vue';
+import { contentSetting, opacityElement } from '../../motionSettings.js';
+import CardDate from '../card/CardDate.vue';
+import CardVisa from '../card/CardVisa.vue';
+import CardNumber from '../card/CardNumber.vue';
+import CVV from '../card/CVV.vue';
+const emit = defineEmits(['change'])
+const getValueCardNumber = (value) => emit('change', value);
+
+</script>
 <style scoped>
 .content__right {
   background: linear-gradient(244.85deg, #FCEE21 0%, #009245 100%);

@@ -1,6 +1,3 @@
-<script setup>
-import {contentSetting} from '../../motionSettings.js'
-</script>
 <template>
  <div v-motion="contentSetting.leftInitial" class="content__left transition-all duration-1000 w-full  xl:w-[40%] bg-white rounded-l-3xl relative">
       <div class="left__top">
@@ -22,6 +19,9 @@ import {contentSetting} from '../../motionSettings.js'
       </div>
     </div>
 </template>
+<script setup>
+import {contentSetting} from '../../motionSettings.js'
+</script>
 <style scoped>
 .content__left {
   padding: 54px 42px;
