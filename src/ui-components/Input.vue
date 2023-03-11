@@ -19,4 +19,9 @@ input.form-control {
 input.form-control::placeholder {
     color: rgba(255, 255, 255, 0.53);
 }
+@media screen and (max-width:568px) {
+    input {
+        font-size: 16px;
+    }
+}
 </style>

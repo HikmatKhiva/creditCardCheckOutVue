@@ -1,28 +1,18 @@
 <template>
     <div class="card__date mt-5">
-        <h3 class="text-xl text-white mb-2">Expiration date</h3>
-        <input :class="{ 'error': !errorMonth }" type="text" id="month"
-            @input="event => changeValueMonth(event.target.value)" maxlength="2" max="12" min="1" placeholder="MM" />
-        <input class="ml-7 inline-block" type="text" maxlength="2" placeholder="YY" />
+        <h3 class="text-xl lg:text-2xl xl:text-3xl text-white mb-2">Expiration date</h3>
+        <input type="text" id="month" @input="event => storage.cardDate.month = event.target.value" maxlength="2" max="12"
+            min="1" placeholder="MM" />
+        <input @input="event => storage.cardDate.year = event.target.value" class="ml-5 lg:ml-7 inline-block" type="text"
+            maxlength="2" placeholder="YY" />
     </div>
 </template>
 <script setup>
-import { ref } from "vue";
-
-const errorMonth = ref(true)
-const changeValueMonth = (value) => errorMonth.value = /(^0?[1-9]$)|(^1[0-2]$)/.test(value);
+import { useStorage } from '../../stores/useStorage';
+const storage = useStorage()
 
 </script>
 <style scoped>
-input.error {
-    border: 1px solid red;
-    color: red;
-}
-
-input.error::placeholder {
-    color: red;
-}
-
 input {
     text-align: center;
     width: 70px;
@@ -37,5 +27,10 @@ input {
 
 input::placeholder {
     color: rgba(255, 255, 255, 0.53);
+}
+@media screen and (max-width:568px) {
+    input {
+        font-size: 16px;
+    }
 }
 </style>

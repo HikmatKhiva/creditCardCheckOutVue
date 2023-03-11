@@ -1,11 +1,13 @@
 <template>
-    <div class="visa__card mt-6">
-        <h4 class="">{{ props.title }}</h4>
+    <div class="visa__card ">
+        <h4 class="text-xl lg:text-2xl xl:text-3xl">{{ props.title }}</h4>
         <Input :type="props.typeInput" v-cardformat:formatCardNumber
-            @input="event => getValueCardNumber(event.target.value)" maxlength="19" :placeholder="props.placeholder" />
+            @input="event => storage.cardNumber = event.target.value" maxlength="19" :placeholder="props.placeholder" />
     </div>
 </template>
 <script setup>
+import { useStorage } from '../../stores/useStorage';
+const storage = useStorage()
 const props = defineProps({
     title: {
         type: String,
@@ -19,17 +21,12 @@ const props = defineProps({
         type: String,
         required: true,
     },
-    getValueCardNumber: {
-        type: Function,
-        required: true,
-    }
+ 
 });
 </script>
 <style scoped>
 h4 {
     font-weight: 400;
-    font-size: 22px;
-    line-height: 27px;
     color: white;
 }
 </style>
